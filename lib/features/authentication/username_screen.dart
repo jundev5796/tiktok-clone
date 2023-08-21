@@ -72,17 +72,21 @@ class _UsernameScreenState extends State<UsernameScreen> {
               ),
               cursorColor: Theme.of(context).primaryColor,
             ),
-            Gaps.v16,
+            Gaps.v28,
             FractionallySizedBox(
               widthFactor: 1,
-              child: Container(
+              child: AnimatedContainer(
                 padding: const EdgeInsets.symmetric(
                   vertical: Sizes.size16,
                 ),
                 decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(Sizes.size5),
                   color: _username.isEmpty
                       ? Colors.grey.shade300
                       : Theme.of(context).primaryColor,
+                ),
+                duration: const Duration(
+                  milliseconds: 300,
                 ),
                 child: const Text(
                   'Next',
