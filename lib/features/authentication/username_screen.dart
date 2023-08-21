@@ -2,8 +2,27 @@ import 'package:flutter/material.dart';
 import 'package:tiktok_clone/constants/gaps.dart';
 import 'package:tiktok_clone/constants/sizes.dart';
 
-class UsernameScreen extends StatelessWidget {
+class UsernameScreen extends StatefulWidget {
   const UsernameScreen({super.key});
+
+  @override
+  State<UsernameScreen> createState() => _UsernameScreenState();
+}
+
+class _UsernameScreenState extends State<UsernameScreen> {
+  final TextEditingController _usernameController = TextEditingController();
+
+  String _username = "";
+
+  @override
+  void initState() {
+    super.initState();
+    _usernameController.addListener(() {
+      setState(() {
+        _username = _usernameController.text;
+      });
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -37,6 +56,7 @@ class UsernameScreen extends StatelessWidget {
             ),
             Gaps.v16,
             TextField(
+              controller: _usernameController,
               decoration: InputDecoration(
                 hintText: "Username",
                 enabledBorder: UnderlineInputBorder(
@@ -60,7 +80,9 @@ class UsernameScreen extends StatelessWidget {
                   vertical: Sizes.size16,
                 ),
                 decoration: BoxDecoration(
-                  color: Theme.of(context).primaryColor,
+                  color: _username.isEmpty
+                      ? Colors.grey.shade300
+                      : Theme.of(context).primaryColor,
                 ),
                 child: const Text(
                   'Next',
