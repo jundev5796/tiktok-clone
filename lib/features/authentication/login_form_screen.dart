@@ -13,8 +13,14 @@ class LoginFormScreen extends StatefulWidget {
 class _LoginFormScreenState extends State<LoginFormScreen> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
+  Map<String, String> formData = {};
+
   void _onSubmitTap() {
-    _formKey.currentState?.validate();
+    if (_formKey.currentState != null) {
+      if (_formKey.currentState!.validate()) {
+        _formKey.currentState!.save();
+      }
+    }
   }
 
   @override
@@ -33,27 +39,63 @@ class _LoginFormScreenState extends State<LoginFormScreen> {
             children: [
               Gaps.v28,
               TextFormField(
-                decoration: const InputDecoration(
+                decoration: InputDecoration(
                   hintText: 'Email',
+                  enabledBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(
+                      color: Colors.grey.shade400,
+                    ),
+                  ),
+                  focusedBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(
+                      color: Colors.grey.shade400,
+                    ),
+                  ),
                 ),
                 validator: (value) {
-                  return "I don't like your email";
+                  if (value != null && value.isEmpty) {
+                    return "Plase write your email";
+                  }
+                  return null;
+                },
+                onSaved: (newValue) {
+                  if (newValue != null) {
+                    formData['email'] = newValue;
+                  }
                 },
               ),
               Gaps.v16,
               TextFormField(
-                decoration: const InputDecoration(
+                decoration: InputDecoration(
                   hintText: 'Password',
+                  enabledBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(
+                      color: Colors.grey.shade400,
+                    ),
+                  ),
+                  focusedBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(
+                      color: Colors.grey.shade400,
+                    ),
+                  ),
                 ),
                 validator: (value) {
-                  return "Wrong Password";
+                  if (value != null && value.isEmpty) {
+                    return "Plase write your password";
+                  }
+                  return null;
+                },
+                onSaved: (newValue) {
+                  if (newValue != null) {
+                    formData['password'] = newValue;
+                  }
                 },
               ),
               Gaps.v28,
               GestureDetector(
                 onTap: _onSubmitTap,
                 child: const FormButton(disabled: false),
-              ),
+              )
             ],
           ),
         ),
