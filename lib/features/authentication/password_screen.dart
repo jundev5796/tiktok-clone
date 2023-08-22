@@ -55,6 +55,10 @@ class _PasswordState extends State<PasswordScreen> {
     );
   }
 
+  void _onClearTap() {
+    _passwordController.clear();
+  }
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -88,10 +92,13 @@ class _PasswordState extends State<PasswordScreen> {
                   suffix: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      FaIcon(
-                        FontAwesomeIcons.solidCircleXmark,
-                        color: Colors.grey.shade500,
-                        size: Sizes.size20,
+                      GestureDetector(
+                        onTap: _onClearTap,
+                        child: FaIcon(
+                          FontAwesomeIcons.solidCircleXmark,
+                          color: Colors.grey.shade500,
+                          size: Sizes.size20,
+                        ),
                       ),
                       Gaps.h16,
                       FaIcon(
