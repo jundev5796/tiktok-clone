@@ -6,11 +6,12 @@ import 'package:tiktok_clone/features/authentication/widgets/form_button.dart';
 
 class PasswordScreen extends StatefulWidget {
   const PasswordScreen({super.key});
+
   @override
-  State<PasswordScreen> createState() => _PasswordState();
+  State<PasswordScreen> createState() => _PasswordScreenState();
 }
 
-class _PasswordState extends State<PasswordScreen> {
+class _PasswordScreenState extends State<PasswordScreen> {
   final TextEditingController _passwordController = TextEditingController();
 
   String _password = "";
@@ -33,28 +34,12 @@ class _PasswordState extends State<PasswordScreen> {
     super.dispose();
   }
 
-  String? _isPasswordValid() {
-    if (_password.isEmpty) return null;
-    final regExp = RegExp(
-        r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
-    if (!regExp.hasMatch(_password)) {
-      return "Email not valid";
-    }
-    return null;
+  bool _isPasswordValid() {
+    return _password.isNotEmpty && _password.length > 8;
   }
 
   void _onScaffoldTap() {
     FocusScope.of(context).unfocus();
-  }
-
-  void _onSubmit() {
-    if (_password.isEmpty || _isPasswordValid() != null) return;
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => const PasswordScreen(),
-      ),
-    );
   }
 
   void _onClearTap() {
@@ -96,6 +81,7 @@ class _PasswordState extends State<PasswordScreen> {
                 controller: _passwordController,
                 onEditingComplete: _onSubmit,
                 obscureText: _obscureText,
+                autocorrect: false,
                 decoration: InputDecoration(
                   suffix: Row(
                     mainAxisSize: MainAxisSize.min,
@@ -135,12 +121,30 @@ class _PasswordState extends State<PasswordScreen> {
                 ),
                 cursorColor: Theme.of(context).primaryColor,
               ),
-              Gaps.v28,
-              GestureDetector(
-                onTap: _onSubmit,
-                child: FormButton(
-                  disabled: _password.isEmpty || _isPasswordValid() != null,
+              Gaps.v10,
+              const Text(
+                'Your password must have:',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
                 ),
+              ),
+              Gaps.v10,
+              Row(
+                children: [
+                  FaIcon(
+                    FontAwesomeIcons.circleCheck,
+                    size: Sizes.size20,
+                    color: _isPasswordValid()
+                        ? Colors.green
+                        : Colors.grey.shade400,
+                  ),
+                  Gaps.h5,
+                  const Text("8 to 20 characters")
+                ],
+              ),
+              Gaps.v28,
+              FormButton(
+                disabled: !_isPasswordValid(),
               ),
             ],
           ),
