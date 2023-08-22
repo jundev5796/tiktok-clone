@@ -88,6 +88,7 @@ class _PasswordState extends State<PasswordScreen> {
               TextField(
                 controller: _passwordController,
                 onEditingComplete: _onSubmit,
+                obscureText: true,
                 decoration: InputDecoration(
                   suffix: Row(
                     mainAxisSize: MainAxisSize.min,
@@ -109,7 +110,6 @@ class _PasswordState extends State<PasswordScreen> {
                     ],
                   ),
                   hintText: "Make it strong!",
-                  errorText: _isPasswordValid(),
                   enabledBorder: UnderlineInputBorder(
                     borderSide: BorderSide(
                       color: Colors.grey.shade400,
