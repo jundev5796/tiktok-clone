@@ -102,6 +102,9 @@ class _BirthdayScreenState extends State<BirthdayScreen> {
         child: SizedBox(
           height: 300,
           child: CupertinoDatePicker(
+            maximumDate: initialDate,
+            initialDateTime: initialDate,
+            mode: CupertinoDatePickerMode.date,
             onDateTimeChanged: _setTextFieldDate,
           ),
         ),
