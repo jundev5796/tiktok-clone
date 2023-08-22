@@ -15,6 +15,8 @@ class _PasswordState extends State<PasswordScreen> {
 
   String _password = "";
 
+  bool _obscureText = true;
+
   @override
   void initState() {
     super.initState();
@@ -59,6 +61,11 @@ class _PasswordState extends State<PasswordScreen> {
     _passwordController.clear();
   }
 
+  void _toggleObscureText() {
+    _obscureText = !_obscureText;
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -88,7 +95,7 @@ class _PasswordState extends State<PasswordScreen> {
               TextField(
                 controller: _passwordController,
                 onEditingComplete: _onSubmit,
-                obscureText: true,
+                obscureText: _obscureText,
                 decoration: InputDecoration(
                   suffix: Row(
                     mainAxisSize: MainAxisSize.min,
@@ -102,10 +109,13 @@ class _PasswordState extends State<PasswordScreen> {
                         ),
                       ),
                       Gaps.h16,
-                      FaIcon(
-                        FontAwesomeIcons.eye,
-                        color: Colors.grey.shade500,
-                        size: Sizes.size20,
+                      GestureDetector(
+                        onTap: _toggleObscureText,
+                        child: FaIcon(
+                          FontAwesomeIcons.eye,
+                          color: Colors.grey.shade500,
+                          size: Sizes.size20,
+                        ),
                       ),
                     ],
                   ),
