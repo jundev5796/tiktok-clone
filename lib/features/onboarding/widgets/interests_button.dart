@@ -50,8 +50,9 @@ class _InterestButtonState extends State<InterestButton> {
         ),
         child: Text(
           widget.interest,
-          style: const TextStyle(
+          style: TextStyle(
             fontWeight: FontWeight.bold,
+            color: _isSelected ? Colors.white : Colors.black87,
           ),
         ),
       ),
