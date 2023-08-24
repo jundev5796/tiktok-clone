@@ -20,12 +20,10 @@ class _TutorialScreenState extends State<TutorialScreen> {
 
   void _onPanUpdate(DragUpdateDetails details) {
     if (details.delta.dx > 0) {
-      // to the right
       setState(() {
         _direction = Direction.right;
       });
     } else {
-      // to the left
       setState(() {
         _direction = Direction.left;
       });
@@ -55,51 +53,47 @@ class _TutorialScreenState extends State<TutorialScreen> {
           child: SafeArea(
             child: AnimatedCrossFade(
               firstChild: const Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Gaps.v80,
-                  Text(
-                    "Watch cool videos!",
-                    style: TextStyle(
-                      fontSize: Sizes.size40,
-                      fontWeight: FontWeight.bold,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Gaps.v80,
+                    Text(
+                      "Watch cool videos!",
+                      style: TextStyle(
+                        fontSize: Sizes.size40,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
-                  ),
-                  Gaps.v16,
-                  Text(
-                    "Videos are personalized for you based on what you watch, like, and share.",
-                    style: TextStyle(
-                      fontSize: Sizes.size20,
-                    ),
-                  ),
-                ],
-              ),
+                    Gaps.v16,
+                    Text(
+                      "Videos are personalized for you based on what you watch, like, and share.",
+                      style: TextStyle(
+                        fontSize: Sizes.size20,
+                      ),
+                    )
+                  ]),
               secondChild: const Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Gaps.v80,
-                  Text(
-                    "Follow the rules!",
-                    style: TextStyle(
-                      fontSize: Sizes.size40,
-                      fontWeight: FontWeight.bold,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Gaps.v80,
+                    Text(
+                      "Follow the rules",
+                      style: TextStyle(
+                        fontSize: Sizes.size40,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
-                  ),
-                  Gaps.v16,
-                  Text(
-                    "Take care of one another! Pls!",
-                    style: TextStyle(
-                      fontSize: Sizes.size20,
-                    ),
-                  ),
-                ],
-              ),
+                    Gaps.v16,
+                    Text(
+                      "Videos are personalized for you based on what you watch, like, and share.",
+                      style: TextStyle(
+                        fontSize: Sizes.size20,
+                      ),
+                    )
+                  ]),
               crossFadeState: _showingPage == Page.first
                   ? CrossFadeState.showFirst
                   : CrossFadeState.showSecond,
-              duration: const Duration(
-                milliseconds: 300,
-              ),
+              duration: const Duration(milliseconds: 300),
             ),
           ),
         ),
@@ -109,10 +103,14 @@ class _TutorialScreenState extends State<TutorialScreen> {
                 vertical: Sizes.size24,
                 horizontal: Sizes.size24,
               ),
-              child: CupertinoButton(
-                onPressed: () {},
-                color: Theme.of(context).primaryColor,
-                child: const Text("Enter the App!"),
+              child: AnimatedOpacity(
+                duration: const Duration(milliseconds: 300),
+                opacity: _showingPage == Page.first ? 0 : 1,
+                child: CupertinoButton(
+                  onPressed: () {},
+                  color: Theme.of(context).primaryColor,
+                  child: const Text('Enter the app!'),
+                ),
               )),
         ),
       ),
