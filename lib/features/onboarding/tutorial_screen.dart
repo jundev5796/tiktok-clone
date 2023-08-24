@@ -12,10 +12,10 @@ class TutorialScreen extends StatefulWidget {
 class _TutorialScreenState extends State<TutorialScreen> {
   @override
   Widget build(BuildContext context) {
-    return const DefaultTabController(
+    return DefaultTabController(
       length: 3,
       child: Scaffold(
-        body: SafeArea(
+        body: const SafeArea(
           child: TabBarView(
             children: [
               Padding(
@@ -91,6 +91,18 @@ class _TutorialScreenState extends State<TutorialScreen> {
                 ),
               ),
             ],
+          ),
+        ),
+        bottomNavigationBar: BottomAppBar(
+          child: Container(
+            padding: const EdgeInsets.symmetric(
+              vertical: Sizes.size48,
+            ),
+            child: const Row(
+              children: [
+                TabPageSelector(),
+              ],
+            ),
           ),
         ),
       ),
