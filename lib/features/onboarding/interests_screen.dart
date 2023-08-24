@@ -52,15 +52,15 @@ class InterestsScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Choose your interests"),
       ),
-      body: const Padding(
-        padding: EdgeInsets.symmetric(
+      body: Padding(
+        padding: const EdgeInsets.symmetric(
           horizontal: Sizes.size24,
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Gaps.v32,
-            Text(
+            const Text(
               "Choose your interests",
               style: TextStyle(
                 fontSize: Sizes.size40,
@@ -68,12 +68,38 @@ class InterestsScreen extends StatelessWidget {
               ),
             ),
             Gaps.v20,
-            Text(
+            const Text(
               "Get better video recommendations",
               style: TextStyle(
                 fontSize: Sizes.size20,
               ),
             ),
+            Gaps.v64,
+            for (var interest in interests)
+              Container(
+                padding: const EdgeInsets.symmetric(
+                  vertical: Sizes.size24,
+                  horizontal: Sizes.size12,
+                ),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(
+                    Sizes.size32,
+                  ),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.05),
+                      blurRadius: 5,
+                      spreadRadius: 5,
+                    ),
+                  ],
+                ),
+                child: Text(
+                  interest,
+                  style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
           ],
         ),
       ),
