@@ -2,6 +2,47 @@ import 'package:flutter/material.dart';
 import 'package:tiktok_clone/constants/gaps.dart';
 import 'package:tiktok_clone/constants/sizes.dart';
 
+const interests = [
+  "Daily Life",
+  "Comedy",
+  "Entertainment",
+  "Animals",
+  "Food",
+  "Beauty & Style",
+  "Drama",
+  "Learning",
+  "Talent",
+  "Sports",
+  "Auto",
+  "Family",
+  "Fitness & Health",
+  "DIY & Life Hacks",
+  "Arts & Crafts",
+  "Dance",
+  "Outdoors",
+  "Oddly Satisfying",
+  "Home & Garden",
+  "Daily Life",
+  "Comedy",
+  "Entertainment",
+  "Animals",
+  "Food",
+  "Beauty & Style",
+  "Drama",
+  "Learning",
+  "Talent",
+  "Sports",
+  "Auto",
+  "Family",
+  "Fitness & Health",
+  "DIY & Life Hacks",
+  "Arts & Crafts",
+  "Dance",
+  "Outdoors",
+  "Oddly Satisfying",
+  "Home & Garden",
+];
+
 class InterestsScreen extends StatelessWidget {
   const InterestsScreen({super.key});
 
