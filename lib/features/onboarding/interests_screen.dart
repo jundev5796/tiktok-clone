@@ -78,10 +78,11 @@ class InterestsScreen extends StatelessWidget {
             for (var interest in interests)
               Container(
                 padding: const EdgeInsets.symmetric(
-                  vertical: Sizes.size24,
-                  horizontal: Sizes.size12,
+                  vertical: Sizes.size12,
+                  horizontal: Sizes.size24,
                 ),
                 decoration: BoxDecoration(
+                  color: Colors.white,
                   borderRadius: BorderRadius.circular(
                     Sizes.size32,
                   ),
