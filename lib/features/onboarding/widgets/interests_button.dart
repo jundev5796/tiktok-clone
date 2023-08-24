@@ -26,13 +26,16 @@ class _InterestButtonState extends State<InterestButton> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: _onTap,
-      child: Container(
+      child: AnimatedContainer(
+        duration: const Duration(
+          milliseconds: 300,
+        ),
         padding: const EdgeInsets.symmetric(
           vertical: Sizes.size16,
           horizontal: Sizes.size24,
         ),
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: _isSelected ? Theme.of(context).primaryColor : Colors.white,
           borderRadius: BorderRadius.circular(
             Sizes.size32,
           ),
