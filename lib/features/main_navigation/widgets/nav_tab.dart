@@ -6,34 +6,39 @@ class NavTab extends StatelessWidget {
   final String text;
   final bool isSelceted;
   final IconData icon;
+  final Function onTap;
 
   const NavTab({
     super.key,
     required this.text,
     required this.isSelceted,
     required this.icon,
+    required this.onTap,
   });
 
   @override
   Widget build(BuildContext context) {
-    return AnimatedOpacity(
-      duration: const Duration(milliseconds: 300),
-      opacity: isSelceted ? 1 : 0.6,
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          FaIcon(
-            icon,
-            color: Colors.white,
-          ),
-          Gaps.v5,
-          Text(
-            text,
-            style: const TextStyle(
+    return GestureDetector(
+      onTap: () => onTap(),
+      child: AnimatedOpacity(
+        duration: const Duration(milliseconds: 300),
+        opacity: isSelceted ? 1 : 0.6,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            FaIcon(
+              icon,
               color: Colors.white,
             ),
-          ),
-        ],
+            Gaps.v5,
+            Text(
+              text,
+              style: const TextStyle(
+                color: Colors.white,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
