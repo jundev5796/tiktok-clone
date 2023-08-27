@@ -18,14 +18,20 @@ class _StfScreenState extends State<StfScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Text("$_clicks"),
-        TextButton(
-          onPressed: _increase,
-          child: const Text("+"),
-        ),
-      ],
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            "$_clicks",
+            style: const TextStyle(fontSize: 48),
+          ),
+          TextButton(
+            onPressed: _increase,
+            child: const Text("+"),
+          ),
+        ],
+      ),
     );
   }
 }
