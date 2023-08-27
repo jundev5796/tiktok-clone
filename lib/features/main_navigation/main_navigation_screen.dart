@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:tiktok_clone/constants/gaps.dart';
 import 'package:tiktok_clone/constants/sizes.dart';
 import 'package:tiktok_clone/features/main_navigation/widgets/nav_tab.dart';
 import 'package:tiktok_clone/features/onboarding/widgets/stf_screen.dart';
@@ -66,6 +67,25 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
                 selectedIcon: FontAwesomeIcons.solidCompass,
                 onTap: () => _onTap(1),
               ),
+              Gaps.h24,
+              Stack(
+                children: [
+                  Container(
+                    height: 30,
+                    width: 25,
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: Sizes.size8,
+                    ),
+                    decoration: BoxDecoration(
+                      color: Colors.blue,
+                      borderRadius: BorderRadius.circular(
+                        Sizes.size11,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              Gaps.h24,
               NavTab(
                 text: "Inbox",
                 isSelceted: _selectedIndex == 3,
