@@ -70,29 +70,54 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
               Gaps.h24,
               Stack(
                 children: [
-                  Container(
-                    height: 30,
-                    width: 25,
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: Sizes.size8,
+                  Positioned(
+                    right: 20,
+                    child: Container(
+                      height: 30,
+                      width: 25,
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: Sizes.size8,
+                      ),
+                      decoration: BoxDecoration(
+                        color: const Color(0xFF61D4F0),
+                        borderRadius: BorderRadius.circular(
+                          Sizes.size8,
+                        ),
+                      ),
                     ),
-                    decoration: BoxDecoration(
-                      color: Colors.blue,
-                      borderRadius: BorderRadius.circular(
-                        Sizes.size11,
+                  ),
+                  Positioned(
+                    left: 20,
+                    child: Container(
+                      height: 30,
+                      width: 25,
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: Sizes.size8,
+                      ),
+                      decoration: BoxDecoration(
+                        color: Theme.of(context).primaryColor,
+                        borderRadius: BorderRadius.circular(
+                          Sizes.size8,
+                        ),
                       ),
                     ),
                   ),
                   Container(
                     height: 30,
-                    width: 25,
                     padding: const EdgeInsets.symmetric(
-                      horizontal: Sizes.size8,
+                      horizontal: Sizes.size12,
                     ),
                     decoration: BoxDecoration(
-                      color: Colors.red,
+                      color: Colors.white,
                       borderRadius: BorderRadius.circular(
-                        Sizes.size11,
+                        Sizes.size6,
+                      ),
+                    ),
+                    child: const Center(
+                      child: FaIcon(
+                        FontAwesomeIcons.plus,
+                        color: Colors.black,
+                        size: 18,
                       ),
                     ),
                   ),
