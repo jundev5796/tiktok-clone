@@ -83,6 +83,19 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
                       ),
                     ),
                   ),
+                  Container(
+                    height: 30,
+                    width: 25,
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: Sizes.size8,
+                    ),
+                    decoration: BoxDecoration(
+                      color: Colors.red,
+                      borderRadius: BorderRadius.circular(
+                        Sizes.size11,
+                      ),
+                    ),
+                  ),
                 ],
               ),
               Gaps.h24,
