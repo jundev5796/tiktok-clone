@@ -4,7 +4,7 @@ import 'package:tiktok_clone/constants/gaps.dart';
 
 class NavTab extends StatelessWidget {
   final String text;
-  final bool isSelceted;
+  final bool isSelected;
   final IconData icon;
   final IconData selectedIcon;
   final Function onTap;
@@ -12,7 +12,7 @@ class NavTab extends StatelessWidget {
   const NavTab({
     super.key,
     required this.text,
-    required this.isSelceted,
+    required this.isSelected,
     required this.icon,
     required this.onTap,
     required this.selectedIcon,
@@ -27,12 +27,12 @@ class NavTab extends StatelessWidget {
           color: Colors.black,
           child: AnimatedOpacity(
             duration: const Duration(milliseconds: 300),
-            opacity: isSelceted ? 1 : 0.6,
+            opacity: isSelected ? 1 : 0.6,
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
                 FaIcon(
-                  isSelceted ? selectedIcon : icon,
+                  isSelected ? selectedIcon : icon,
                   color: Colors.white,
                 ),
                 Gaps.v5,
