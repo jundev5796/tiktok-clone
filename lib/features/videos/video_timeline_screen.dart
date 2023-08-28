@@ -13,29 +13,32 @@ class _VideoTimelineScreenState extends State<VideoTimelineScreen> {
 
   final PageController _pageController = PageController();
 
-  List<Color> colors = [
-    Colors.blue,
-    Colors.red,
-    Colors.yellow,
-    Colors.teal,
-  ];
+  final Duration _scrollDuration = const Duration(milliseconds: 250);
+  final Curve _scrollCurve = Curves.linear;
 
   void _onPageChanged(int page) {
     _pageController.animateToPage(
       page,
-      duration: const Duration(milliseconds: 150),
-      curve: Curves.linear,
+      duration: _scrollDuration,
+      curve: _scrollCurve,
     );
     if (page == _itemCount - 1) {
       _itemCount = _itemCount + 4;
-      colors.addAll([
-        Colors.blue,
-        Colors.red,
-        Colors.yellow,
-        Colors.teal,
-      ]);
       setState(() {});
     }
+  }
+
+  void _onVideoFinished() {
+    _pageController.nextPage(
+      duration: _scrollDuration,
+      curve: _scrollCurve,
+    );
+  }
+
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
   }
 
   @override
@@ -45,7 +48,8 @@ class _VideoTimelineScreenState extends State<VideoTimelineScreen> {
       scrollDirection: Axis.vertical,
       onPageChanged: _onPageChanged,
       itemCount: _itemCount,
-      itemBuilder: (context, index) => const VideoPost(),
+      itemBuilder: (context, index) =>
+          VideoPost(onVideoFinished: _onVideoFinished),
     );
   }
 }
