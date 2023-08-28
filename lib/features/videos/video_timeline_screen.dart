@@ -8,16 +8,21 @@ class VideoTimelineScreen extends StatefulWidget {
 }
 
 class _VideoTimelineScreenState extends State<VideoTimelineScreen> {
+  List<Color> colors = [
+    Colors.blue,
+    Colors.red,
+    Colors.yellow,
+    Colors.teal,
+  ];
+
   @override
   Widget build(BuildContext context) {
-    return PageView(
+    return PageView.builder(
       scrollDirection: Axis.vertical,
-      children: [
-        Container(color: Colors.blue),
-        Container(color: Colors.teal),
-        Container(color: Colors.yellow),
-        Container(color: Colors.pink),
-      ],
+      itemCount: 4,
+      itemBuilder: (context, index) => Container(
+        color: colors[index],
+      ),
     );
   }
 }
