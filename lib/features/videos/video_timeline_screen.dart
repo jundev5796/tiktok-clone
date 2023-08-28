@@ -10,6 +10,14 @@ class VideoTimelineScreen extends StatefulWidget {
 class _VideoTimelineScreenState extends State<VideoTimelineScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return PageView(
+      scrollDirection: Axis.vertical,
+      children: [
+        Container(color: Colors.blue),
+        Container(color: Colors.teal),
+        Container(color: Colors.yellow),
+        Container(color: Colors.pink),
+      ],
+    );
   }
 }
