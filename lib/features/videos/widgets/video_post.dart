@@ -55,6 +55,14 @@ class _VideoPostState extends State<VideoPost> {
     }
   }
 
+  void _onTogglePause() {
+    if (_videoPlayerController.value.isPlaying) {
+      _videoPlayerController.pause();
+    } else {
+      _videoPlayerController.play();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return VisibilityDetector(
@@ -68,6 +76,11 @@ class _VideoPostState extends State<VideoPost> {
                 : Container(
                     color: Colors.black,
                   ),
+          ),
+          Positioned.fill(
+            child: GestureDetector(
+              onTap: _onTogglePause,
+            ),
           ),
         ],
       ),
