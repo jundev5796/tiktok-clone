@@ -21,7 +21,7 @@ class VideoPost extends StatefulWidget {
 
 class _VideoPostState extends State<VideoPost>
     with SingleTickerProviderStateMixin {
-  final VideoPlayerController _videoPlayerController =
+  VideoPlayerController _videoPlayerController =
       VideoPlayerController.asset("assets/videos/tiktok_clone_video.mp4");
 
   bool _isPaused = false;
@@ -38,10 +38,12 @@ class _VideoPostState extends State<VideoPost>
   }
 
   void _initVideoPlayer() async {
+    _videoPlayerController =
+        VideoPlayerController.asset("assets/videos/tiktok_clone_video.mp4");
     await _videoPlayerController.initialize();
-    // _videoPlayerController.play();
-    setState(() {});
+    await _videoPlayerController.setLooping(true);
     _videoPlayerController.addListener(_onVideoChange);
+    setState(() {});
   }
 
   @override
