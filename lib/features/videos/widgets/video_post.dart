@@ -157,6 +157,24 @@ class _VideoPostState extends State<VideoPost>
               ],
             ),
           ),
+          const Positioned(
+            bottom: 20,
+            right: 10,
+            child: Column(
+              children: [
+                CircleAvatar(
+                  radius: 25,
+                  backgroundColor: Colors.black,
+                  foregroundColor: Colors.white,
+                  foregroundImage: NetworkImage(
+                      "https://avatars.githubusercontent.com/u/69138182?v=4"),
+                  child: Text(
+                    "Jun",
+                  ),
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );
