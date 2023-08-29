@@ -56,6 +56,9 @@ class _VideoPostState extends State<VideoPost>
       value: 1.5,
       duration: _animationDuration,
     );
+    _animationController.addListener(() {
+      setState(() {});
+    });
   }
 
   @override
@@ -73,8 +76,10 @@ class _VideoPostState extends State<VideoPost>
   void _onTogglePause() {
     if (_videoPlayerController.value.isPlaying) {
       _videoPlayerController.pause();
+      _animationController.reverse();
     } else {
       _videoPlayerController.play();
+      _animationController.forward();
     }
     setState(() {
       _isPaused = !_isPaused;
