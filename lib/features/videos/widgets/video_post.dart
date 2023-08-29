@@ -19,13 +19,14 @@ class VideoPost extends StatefulWidget {
   State<VideoPost> createState() => _VideoPostState();
 }
 
-class _VideoPostState extends State<VideoPost> {
+class _VideoPostState extends State<VideoPost>
+    with SingleTickerProviderStateMixin {
   final VideoPlayerController _videoPlayerController =
       VideoPlayerController.asset("assets/videos/tiktok_clone_video.mp4");
 
   bool _isPaused = false;
-
   final Duration _animationDuration = const Duration(milliseconds: 200);
+  late final AnimationController _animationController;
 
   void _onVideoChange() {
     if (_videoPlayerController.value.isInitialized) {
@@ -47,6 +48,10 @@ class _VideoPostState extends State<VideoPost> {
   void initState() {
     super.initState();
     _initVideoPlayer();
+
+    _animationController = AnimationController(
+      vsync: this,
+    );
   }
 
   @override
