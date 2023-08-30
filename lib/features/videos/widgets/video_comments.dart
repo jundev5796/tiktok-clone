@@ -102,6 +102,10 @@ class _VideoCommentsState extends State<VideoComments> {
                 foregroundColor: Colors.white,
                 child: const Text("Jun"),
               ),
+              Gaps.h10,
+              const Expanded(
+                child: TextField(),
+              ),
             ],
           ),
         ),
