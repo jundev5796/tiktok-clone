@@ -60,13 +60,21 @@ class DiscoverScreen extends StatelessWidget {
               ),
               itemBuilder: (context, index) => Column(
                 children: [
-                  AspectRatio(
-                    aspectRatio: 9 / 16,
-                    child: FadeInImage.assetNetwork(
-                      fit: BoxFit.cover,
-                      placeholder: "assets/images/placeholder.jpeg",
-                      image:
-                          "https://e1.pxfuel.com/desktop-wallpaper/765/617/desktop-wallpaper-cool-anime-iphone-cool-iphone-thumbnail.jpg",
+                  Container(
+                    clipBehavior: Clip.hardEdge,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(
+                        Sizes.size4,
+                      ),
+                    ),
+                    child: AspectRatio(
+                      aspectRatio: 9 / 16,
+                      child: FadeInImage.assetNetwork(
+                        fit: BoxFit.cover,
+                        placeholder: "assets/images/placeholder.jpeg",
+                        image:
+                            "https://e1.pxfuel.com/desktop-wallpaper/765/617/desktop-wallpaper-cool-anime-iphone-cool-iphone-thumbnail.jpg",
+                      ),
                     ),
                   ),
                   Gaps.v10,
