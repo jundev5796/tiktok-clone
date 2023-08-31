@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tiktok_clone/constants/gaps.dart';
 import 'package:tiktok_clone/constants/sizes.dart';
 
 final tabs = [
@@ -45,7 +46,33 @@ class DiscoverScreen extends StatelessWidget {
         ),
         body: TabBarView(
           children: [
-            for (var tab in tabs)
+            GridView.builder(
+              itemCount: 20,
+              padding: const EdgeInsets.all(
+                Sizes.size6,
+              ),
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                crossAxisSpacing: Sizes.size10,
+                mainAxisSpacing: Sizes.size10,
+                childAspectRatio: 9 / 16,
+              ),
+              itemBuilder: (context, index) => Column(
+                children: [
+                  AspectRatio(
+                    aspectRatio: 9 / 16,
+                    child: FadeInImage.assetNetwork(
+                      fit: BoxFit.cover,
+                      placeholder: "assets/images/placeholder.jpeg",
+                      image:
+                          "https://e1.pxfuel.com/desktop-wallpaper/765/617/desktop-wallpaper-cool-anime-iphone-cool-iphone-thumbnail.jpg",
+                    ),
+                  ),
+                  Gaps.v10,
+                ],
+              ),
+            ),
+            for (var tab in tabs.skip(1))
               Center(
                 child: Text(
                   tab,
