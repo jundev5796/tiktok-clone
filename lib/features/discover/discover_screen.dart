@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tiktok_clone/constants/gaps.dart';
 import 'package:tiktok_clone/constants/sizes.dart';
 
@@ -77,6 +78,38 @@ class DiscoverScreen extends StatelessWidget {
                       fontSize: Sizes.size16 + Sizes.size2,
                       fontWeight: FontWeight.bold,
                     ),
+                  ),
+                  Gaps.v5,
+                  Row(
+                    children: [
+                      const CircleAvatar(
+                        radius: 15,
+                        backgroundImage: NetworkImage(
+                          "https://avatars.githubusercontent.com/u/69138182?v=4",
+                        ),
+                      ),
+                      Gaps.h4,
+                      const Expanded(
+                        child: Text(
+                          "My avatar is going to be very long",
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                      Gaps.h4,
+                      const FaIcon(
+                        FontAwesomeIcons.heart,
+                        size: Sizes.size14,
+                      ),
+                      Gaps.h2,
+                      Text(
+                        "2.5M",
+                        style: TextStyle(
+                          color: Colors.grey.shade600,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),
