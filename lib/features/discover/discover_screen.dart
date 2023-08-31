@@ -7,7 +7,7 @@ class DiscoverScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Discover"),
+        title: const Text('Discover'),
       ),
     );
   }
