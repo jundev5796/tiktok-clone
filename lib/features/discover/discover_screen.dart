@@ -79,37 +79,40 @@ class DiscoverScreen extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  Gaps.v5,
-                  Row(
-                    children: [
-                      const CircleAvatar(
-                        radius: 15,
-                        backgroundImage: NetworkImage(
-                          "https://avatars.githubusercontent.com/u/69138182?v=4",
+                  Gaps.v8,
+                  DefaultTextStyle(
+                    style: TextStyle(
+                      color: Colors.grey.shade600,
+                      fontWeight: FontWeight.w600,
+                    ),
+                    child: Row(
+                      children: [
+                        const CircleAvatar(
+                          radius: 12,
+                          backgroundImage: NetworkImage(
+                            "https://avatars.githubusercontent.com/u/69138182?v=4",
+                          ),
                         ),
-                      ),
-                      Gaps.h4,
-                      const Expanded(
-                        child: Text(
-                          "My avatar is going to be very long",
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
+                        Gaps.h4,
+                        const Expanded(
+                          child: Text(
+                            "My avatar is going to be very long",
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                          ),
                         ),
-                      ),
-                      Gaps.h4,
-                      const FaIcon(
-                        FontAwesomeIcons.heart,
-                        size: Sizes.size14,
-                      ),
-                      Gaps.h2,
-                      Text(
-                        "2.5M",
-                        style: TextStyle(
+                        Gaps.h4,
+                        FaIcon(
+                          FontAwesomeIcons.heart,
+                          size: Sizes.size16,
                           color: Colors.grey.shade600,
-                          fontWeight: FontWeight.w600,
                         ),
-                      ),
-                    ],
+                        Gaps.h2,
+                        const Text(
+                          "2.5M",
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),
