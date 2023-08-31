@@ -55,7 +55,7 @@ class DiscoverScreen extends StatelessWidget {
                 crossAxisCount: 2,
                 crossAxisSpacing: Sizes.size10,
                 mainAxisSpacing: Sizes.size10,
-                childAspectRatio: 9 / 16,
+                childAspectRatio: 9 / 20,
               ),
               itemBuilder: (context, index) => Column(
                 children: [
@@ -69,6 +69,15 @@ class DiscoverScreen extends StatelessWidget {
                     ),
                   ),
                   Gaps.v10,
+                  const Text(
+                    "This is a very long caption for my tiktok that I'm uploading just now currently.",
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 2,
+                    style: TextStyle(
+                      fontSize: Sizes.size16 + Sizes.size2,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
                 ],
               ),
             ),
