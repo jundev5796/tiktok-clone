@@ -21,6 +21,7 @@ class DiscoverScreen extends StatelessWidget {
         appBar: AppBar(
           title: const Text('Discover'),
           bottom: TabBar(
+            isScrollable: true,
             labelStyle: const TextStyle(
               fontWeight: FontWeight.w600,
             ),
