@@ -21,18 +21,55 @@ class InboxScreen extends StatelessWidget {
         ],
       ),
       body: ListView(
-        children: const [
-          ListTile(
+        children: [
+          const ListTile(
             title: Text(
               "Activity",
               style: TextStyle(
                 fontWeight: FontWeight.w600,
-                fontSize: Sizes.size18,
+                fontSize: Sizes.size16,
               ),
             ),
             trailing: FaIcon(
               FontAwesomeIcons.chevronRight,
-              size: Sizes.size16,
+              size: Sizes.size14,
+              color: Colors.black,
+            ),
+          ),
+          Container(
+            height: Sizes.size1,
+            color: Colors.grey.shade200,
+          ),
+          ListTile(
+            leading: Container(
+              width: Sizes.size52,
+              decoration: const BoxDecoration(
+                shape: BoxShape.circle,
+                color: Colors.blue,
+              ),
+              child: const Center(
+                child: FaIcon(
+                  FontAwesomeIcons.users,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+            title: const Text(
+              "New Followers",
+              style: TextStyle(
+                fontWeight: FontWeight.w600,
+                fontSize: Sizes.size16,
+              ),
+            ),
+            subtitle: const Text(
+              "Messages from followers will appear here",
+              style: TextStyle(
+                fontSize: Sizes.size14,
+              ),
+            ),
+            trailing: const FaIcon(
+              FontAwesomeIcons.chevronRight,
+              size: Sizes.size14,
               color: Colors.black,
             ),
           ),
