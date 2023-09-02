@@ -69,12 +69,18 @@ class _ChatDetailScreenState extends State<ChatDetailScreen> {
                     decoration: BoxDecoration(
                       color:
                           isMine ? Colors.blue : Theme.of(context).primaryColor,
-                      borderRadius: const BorderRadius.only(
-                        topLeft: Radius.circular(
+                      borderRadius: BorderRadius.only(
+                        topLeft: const Radius.circular(
                           Sizes.size20,
                         ),
-                        topRight: Radius.circular(
+                        topRight: const Radius.circular(
                           Sizes.size20,
+                        ),
+                        bottomLeft: Radius.circular(
+                          isMine ? Sizes.size20 : Sizes.size5,
+                        ),
+                        bottomRight: Radius.circular(
+                          !isMine ? Sizes.size20 : Sizes.size5,
                         ),
                       ),
                     ),
