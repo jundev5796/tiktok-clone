@@ -10,6 +10,8 @@ class ChatsScreen extends StatefulWidget {
 }
 
 class _ChatsScreenState extends State<ChatsScreen> {
+  final GlobalKey<AnimatedListState> _key = GlobalKey<AnimatedListState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,12 +27,14 @@ class _ChatsScreenState extends State<ChatsScreen> {
           ),
         ],
       ),
-      body: ListView(
+      body: AnimatedList(
+        key: _key,
         padding: const EdgeInsets.symmetric(
           vertical: Sizes.size10,
         ),
-        children: [
-          ListTile(
+        itemBuilder: (context, index, animation) {
+          return ListTile(
+            key: UniqueKey(),
             leading: const CircleAvatar(
               radius: 30,
               foregroundImage: NetworkImage(
@@ -42,9 +46,9 @@ class _ChatsScreenState extends State<ChatsScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
-                const Text(
-                  "Nico",
-                  style: TextStyle(
+                Text(
+                  "Nico ($index)",
+                  style: const TextStyle(
                     fontWeight: FontWeight.w600,
                   ),
                 ),
@@ -58,8 +62,8 @@ class _ChatsScreenState extends State<ChatsScreen> {
               ],
             ),
             subtitle: const Text("Hi! Nice to meet you!"),
-          ),
-        ],
+          );
+        },
       ),
     );
   }
