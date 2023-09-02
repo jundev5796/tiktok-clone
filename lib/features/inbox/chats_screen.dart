@@ -39,35 +39,38 @@ class _ChatsScreenState extends State<ChatsScreen> {
           vertical: Sizes.size10,
         ),
         itemBuilder: (context, index, animation) {
-          return ListTile(
-            key: UniqueKey(),
-            leading: const CircleAvatar(
-              radius: 30,
-              foregroundImage: NetworkImage(
-                "https://avatars.githubusercontent.com/u/69138182?v=4",
+          return FadeTransition(
+            opacity: animation,
+            child: ListTile(
+              key: UniqueKey(),
+              leading: const CircleAvatar(
+                radius: 30,
+                foregroundImage: NetworkImage(
+                  "https://avatars.githubusercontent.com/u/69138182?v=4",
+                ),
+                child: Text("Jun"),
               ),
-              child: Text("Jun"),
-            ),
-            title: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                Text(
-                  "Nico ($index)",
-                  style: const TextStyle(
-                    fontWeight: FontWeight.w600,
+              title: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  Text(
+                    "Nico ($index)",
+                    style: const TextStyle(
+                      fontWeight: FontWeight.w600,
+                    ),
                   ),
-                ),
-                Text(
-                  "2:16 PM",
-                  style: TextStyle(
-                    color: Colors.grey.shade500,
-                    fontSize: Sizes.size12,
+                  Text(
+                    "2:16 PM",
+                    style: TextStyle(
+                      color: Colors.grey.shade500,
+                      fontSize: Sizes.size12,
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
+              subtitle: const Text("Hi! Nice to meet you!"),
             ),
-            subtitle: const Text("Hi! Nice to meet you!"),
           );
         },
       ),
