@@ -12,9 +12,12 @@ class ChatsScreen extends StatefulWidget {
 class _ChatsScreenState extends State<ChatsScreen> {
   final GlobalKey<AnimatedListState> _key = GlobalKey<AnimatedListState>();
 
+  final List<int> _items = [];
+
   void _addItem() {
     if (_key.currentState != null) {
-      _key.currentState!.insertItem(0);
+      _key.currentState!.insertItem(_items.length);
+      _items.add(_items.length);
     }
   }
 
@@ -40,36 +43,40 @@ class _ChatsScreenState extends State<ChatsScreen> {
         ),
         itemBuilder: (context, index, animation) {
           return FadeTransition(
+            key: UniqueKey(),
             opacity: animation,
-            child: ListTile(
-              key: UniqueKey(),
-              leading: const CircleAvatar(
-                radius: 30,
-                foregroundImage: NetworkImage(
-                  "https://avatars.githubusercontent.com/u/69138182?v=4",
+            child: SizeTransition(
+              sizeFactor: animation,
+              child: ListTile(
+                key: UniqueKey(),
+                leading: const CircleAvatar(
+                  radius: 30,
+                  foregroundImage: NetworkImage(
+                    "https://avatars.githubusercontent.com/u/69138182?v=4",
+                  ),
+                  child: Text("Jun"),
                 ),
-                child: Text("Jun"),
-              ),
-              title: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  Text(
-                    "Nico ($index)",
-                    style: const TextStyle(
-                      fontWeight: FontWeight.w600,
+                title: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    Text(
+                      "Nico ($index)",
+                      style: const TextStyle(
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
-                  ),
-                  Text(
-                    "2:16 PM",
-                    style: TextStyle(
-                      color: Colors.grey.shade500,
-                      fontSize: Sizes.size12,
+                    Text(
+                      "2:16 PM",
+                      style: TextStyle(
+                        color: Colors.grey.shade500,
+                        fontSize: Sizes.size12,
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
+                subtitle: const Text("Hi! Nice to meet you!"),
               ),
-              subtitle: const Text("Hi! Nice to meet you!"),
             ),
           );
         },
