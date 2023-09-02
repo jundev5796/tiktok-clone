@@ -16,6 +16,15 @@ class _ChatDetailScreenState extends State<ChatDetailScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const ListTile(
+          contentPadding: EdgeInsets.zero,
+          horizontalTitleGap: Sizes.size8,
+          leading: CircleAvatar(
+            radius: Sizes.size24,
+            foregroundImage: NetworkImage(
+              "https://avatars.githubusercontent.com/u/69138182?v=4",
+            ),
+            child: Text('니꼬'),
+          ),
           title: Text(
             "Jun",
             style: TextStyle(
