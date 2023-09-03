@@ -45,6 +45,16 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
           ),
           itemExtent: 100,
         ),
+        const SliverToBoxAdapter(
+          child: Column(
+            children: [
+              CircleAvatar(
+                backgroundColor: Colors.red,
+                radius: 20,
+              ),
+            ],
+          ),
+        ),
         SliverPersistentHeader(
           delegate: CustomDelegate(),
           pinned: true,
