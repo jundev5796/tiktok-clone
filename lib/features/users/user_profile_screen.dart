@@ -28,17 +28,17 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
             ),
           ],
         ),
-        SliverToBoxAdapter(
+        const SliverToBoxAdapter(
           child: Column(
             children: [
-              const CircleAvatar(
+              CircleAvatar(
                 radius: 50,
                 foregroundImage: NetworkImage(
                     "https://avatars.githubusercontent.com/u/69138182?v=4"),
                 child: Text("Jun"),
               ),
               Gaps.v20,
-              const Row(
+              Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
@@ -60,43 +60,9 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const UserCount(followerCount: "97", text: "Following"),
-                  Column(
-                    children: [
-                      const Text(
-                        "97",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: Sizes.size18,
-                        ),
-                      ),
-                      Gaps.v5,
-                      Text(
-                        "Following",
-                        style: TextStyle(
-                          color: Colors.grey.shade500,
-                        ),
-                      ),
-                    ],
-                  ),
-                  Column(
-                    children: [
-                      const Text(
-                        "97",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: Sizes.size18,
-                        ),
-                      ),
-                      Gaps.v5,
-                      Text(
-                        "Following",
-                        style: TextStyle(
-                          color: Colors.grey.shade500,
-                        ),
-                      ),
-                    ],
-                  ),
+                  UserCount(followerCount: "97", text: "Following"),
+                  UserCount(followerCount: "10M", text: "Followers"),
+                  UserCount(followerCount: "194.3M", text: "Likes"),
                 ],
               ),
             ],
