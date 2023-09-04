@@ -105,6 +105,16 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                   ),
                 ),
               ),
+              Gaps.v14,
+              const Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: Sizes.size32,
+                ),
+                child: Text(
+                  "Check out my content and follow my page if you want to support!",
+                  textAlign: TextAlign.center,
+                ),
+              ),
             ],
           ),
         )
