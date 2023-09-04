@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tiktok_clone/constants/gaps.dart';
 import 'package:tiktok_clone/constants/sizes.dart';
+import 'package:tiktok_clone/features/users/widgets/user_count.dart';
 
 class UserProfileScreen extends StatefulWidget {
   const UserProfileScreen({super.key});
@@ -27,17 +28,17 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
             ),
           ],
         ),
-        const SliverToBoxAdapter(
+        SliverToBoxAdapter(
           child: Column(
             children: [
-              CircleAvatar(
+              const CircleAvatar(
                 radius: 50,
                 foregroundImage: NetworkImage(
                     "https://avatars.githubusercontent.com/u/69138182?v=4"),
                 child: Text("Jun"),
               ),
               Gaps.v20,
-              Row(
+              const Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
@@ -52,6 +53,49 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                     FontAwesomeIcons.solidCircleCheck,
                     size: Sizes.size16,
                     color: Colors.blue,
+                  ),
+                ],
+              ),
+              Gaps.v24,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const UserCount(followerCount: "97", text: "Following"),
+                  Column(
+                    children: [
+                      const Text(
+                        "97",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: Sizes.size18,
+                        ),
+                      ),
+                      Gaps.v5,
+                      Text(
+                        "Following",
+                        style: TextStyle(
+                          color: Colors.grey.shade500,
+                        ),
+                      ),
+                    ],
+                  ),
+                  Column(
+                    children: [
+                      const Text(
+                        "97",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: Sizes.size18,
+                        ),
+                      ),
+                      Gaps.v5,
+                      Text(
+                        "Following",
+                        style: TextStyle(
+                          color: Colors.grey.shade500,
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),
