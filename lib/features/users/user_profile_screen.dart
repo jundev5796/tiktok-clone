@@ -28,17 +28,17 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
             ),
           ],
         ),
-        const SliverToBoxAdapter(
+        SliverToBoxAdapter(
           child: Column(
             children: [
-              CircleAvatar(
+              const CircleAvatar(
                 radius: 50,
                 foregroundImage: NetworkImage(
                     "https://avatars.githubusercontent.com/u/69138182?v=4"),
                 child: Text("Jun"),
               ),
               Gaps.v20,
-              Row(
+              const Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
@@ -57,13 +57,30 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                 ],
               ),
               Gaps.v24,
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  UserCount(followerCount: "97", text: "Following"),
-                  UserCount(followerCount: "10M", text: "Followers"),
-                  UserCount(followerCount: "194.3M", text: "Likes"),
-                ],
+              SizedBox(
+                height: Sizes.size48,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const UserCount(followerCount: "97", text: "Following"),
+                    VerticalDivider(
+                      width: Sizes.size32,
+                      thickness: Sizes.size1,
+                      color: Colors.grey.shade400,
+                      indent: Sizes.size14,
+                      endIndent: Sizes.size14,
+                    ),
+                    const UserCount(followerCount: "10M", text: "Followers"),
+                    VerticalDivider(
+                      width: Sizes.size32,
+                      thickness: Sizes.size1,
+                      color: Colors.grey.shade400,
+                      indent: Sizes.size14,
+                      endIndent: Sizes.size14,
+                    ),
+                    const UserCount(followerCount: "194.3M", text: "Likes"),
+                  ],
+                ),
               ),
             ],
           ),

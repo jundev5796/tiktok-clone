@@ -23,7 +23,7 @@ class UserCount extends StatelessWidget {
             fontSize: Sizes.size18,
           ),
         ),
-        Gaps.v5,
+        Gaps.v3,
         Text(
           text,
           style: TextStyle(
