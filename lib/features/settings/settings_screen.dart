@@ -25,6 +25,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
       ),
       body: ListView(
         children: [
+          SwitchListTile.adaptive(
+            value: _notifications,
+            onChanged: _onNotificationChanged,
+            title: const Text("Enable notifications"),
+          ),
           CheckboxListTile(
             activeColor: Colors.black,
             value: _notifications,
