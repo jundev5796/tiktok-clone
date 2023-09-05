@@ -29,19 +29,25 @@ class SignUpScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return OrientationBuilder(
       builder: (context, orientation) {
-        print(orientation);
+        /* if (orientation == Orientation.landscape) {
+          return const Scaffold(
+            body: Center(
+              child: Text('Plz rotate ur phone.'),
+            ),
+          );
+        } */
         return Scaffold(
-          backgroundColor: Colors.white,
           body: SafeArea(
             child: Padding(
               padding: const EdgeInsets.symmetric(
                 horizontal: Sizes.size40,
               ),
               child: Column(
+                mainAxisSize: MainAxisSize.min,
                 children: [
                   Gaps.v80,
                   const Text(
-                    'Sign up for TikTok',
+                    "Sign up for TikTok",
                     style: TextStyle(
                       fontSize: Sizes.size24,
                       fontWeight: FontWeight.w700,
@@ -49,7 +55,7 @@ class SignUpScreen extends StatelessWidget {
                   ),
                   Gaps.v20,
                   const Text(
-                    'Create a profile, follow other accounts, make your own videos, and more.',
+                    "Create a profile, follow other accounts, make your own videos, and more.",
                     style: TextStyle(
                       fontSize: Sizes.size16,
                       color: Colors.black45,
@@ -84,12 +90,14 @@ class SignUpScreen extends StatelessWidget {
                           ),
                         ),
                         Gaps.h16,
-                        const AuthButton(
-                          icon: FaIcon(FontAwesomeIcons.apple),
-                          text: "Continue with Apple",
+                        const Expanded(
+                          child: AuthButton(
+                            icon: FaIcon(FontAwesomeIcons.apple),
+                            text: "Continue with Apple",
+                          ),
                         )
                       ],
-                    ),
+                    )
                 ],
               ),
             ),
@@ -98,17 +106,25 @@ class SignUpScreen extends StatelessWidget {
             color: Colors.grey.shade50,
             elevation: 2,
             child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: Sizes.size32),
+              padding: const EdgeInsets.symmetric(
+                vertical: Sizes.size32,
+              ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Text('Already have an account?'),
+                  const Text(
+                    'Already have an account?',
+                    style: TextStyle(
+                      fontSize: Sizes.size16,
+                    ),
+                  ),
                   Gaps.h5,
                   GestureDetector(
                     onTap: () => _onLoginTap(context),
                     child: Text(
                       'Log in',
                       style: TextStyle(
+                        fontSize: Sizes.size16,
                         fontWeight: FontWeight.w600,
                         color: Theme.of(context).primaryColor,
                       ),
