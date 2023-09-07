@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:tiktok_clone/constants/gaps.dart';
 import 'package:tiktok_clone/constants/sizes.dart';
 import 'package:tiktok_clone/features/main_navigation/main_navigation_screen.dart';
+import 'package:tiktok_clone/utils.dart';
 
 enum Direction { right, left }
 
@@ -10,7 +11,6 @@ enum Page { first, second }
 
 class TutorialScreen extends StatefulWidget {
   const TutorialScreen({super.key});
-
   @override
   State<TutorialScreen> createState() => _TutorialScreenState();
 }
@@ -18,7 +18,6 @@ class TutorialScreen extends StatefulWidget {
 class _TutorialScreenState extends State<TutorialScreen> {
   Direction _direction = Direction.right;
   Page _showingPage = Page.first;
-
   void _onPanUpdate(DragUpdateDetails details) {
     if (details.delta.dx > 0) {
       setState(() {
@@ -108,6 +107,7 @@ class _TutorialScreenState extends State<TutorialScreen> {
           ),
         ),
         bottomNavigationBar: BottomAppBar(
+          color: isDarkMode(context) ? Colors.black : Colors.white,
           child: Padding(
               padding: const EdgeInsets.symmetric(
                 vertical: Sizes.size24,
