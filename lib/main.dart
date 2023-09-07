@@ -5,16 +5,12 @@ import 'package:tiktok_clone/features/authentication/sign_up_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
   await SystemChrome.setPreferredOrientations(
     [
       DeviceOrientation.portraitUp,
     ],
   );
 
-  SystemChrome.setSystemUIOverlayStyle(
-    SystemUiOverlayStyle.dark,
-  );
   runApp(const TikTokApp());
 }
 
@@ -48,6 +44,9 @@ class TikTokApp extends StatelessWidget {
       darkTheme: ThemeData(
         brightness: Brightness.dark,
         scaffoldBackgroundColor: Colors.black,
+        bottomAppBarTheme: BottomAppBarTheme(
+          color: Colors.grey.shade900,
+        ),
         primaryColor: const Color(0xFFE9435A),
       ),
       home: const SignUpScreen(),
