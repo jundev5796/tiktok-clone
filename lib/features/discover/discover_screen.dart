@@ -18,7 +18,6 @@ final tabs = [
 
 class DiscoverScreen extends StatefulWidget {
   const DiscoverScreen({super.key});
-
   @override
   State<DiscoverScreen> createState() => _DiscoverScreenState();
 }
@@ -26,13 +25,12 @@ class DiscoverScreen extends StatefulWidget {
 class _DiscoverScreenState extends State<DiscoverScreen> {
   final TextEditingController _textEditingController =
       TextEditingController(text: "Initial Text");
-
   void _onSearchChanged(String value) {
-    print(value);
+    print("Searching form $value");
   }
 
-  void _onSearchSubmit(String value) {
-    print(value);
+  void _onSearchSubmitted(String value) {
+    print("Submitted $value");
   }
 
   @override
@@ -50,17 +48,16 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
         resizeToAvoidBottomInset: false,
         appBar: AppBar(
           elevation: 1,
-          title: Container(
+          title: ConstrainedBox(
             constraints: const BoxConstraints(
               maxWidth: Breakpoints.sm,
             ),
             child: CupertinoSearchTextField(
               controller: _textEditingController,
               onChanged: _onSearchChanged,
-              onSubmitted: _onSearchSubmit,
+              onSubmitted: _onSearchSubmitted,
               style: TextStyle(
-                color: isDarkMode(context) ? Colors.white : Colors.black,
-              ),
+                  color: isDarkMode(context) ? Colors.white : Colors.black),
             ),
           ),
           bottom: TabBar(
@@ -88,7 +85,7 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
               keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
               itemCount: 20,
               padding: const EdgeInsets.all(
-                Sizes.size6,
+                Sizes.size10,
               ),
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: width > Breakpoints.lg ? 5 : 2,
@@ -102,9 +99,7 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
                     Container(
                       clipBehavior: Clip.hardEdge,
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(
-                          Sizes.size4,
-                        ),
+                        borderRadius: BorderRadius.circular(Sizes.size4),
                       ),
                       child: AspectRatio(
                         aspectRatio: 9 / 16,
@@ -118,53 +113,53 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
                     ),
                     Gaps.v10,
                     const Text(
-                      "This is a very long caption for my tiktok that I'm uploading just now currently.",
+                      "This is a very long caption for my tiktok that im upload just now currently.",
                       overflow: TextOverflow.ellipsis,
                       maxLines: 2,
                       style: TextStyle(
                         fontSize: Sizes.size16 + Sizes.size2,
                         fontWeight: FontWeight.bold,
+                        height: 1.1,
                       ),
                     ),
                     Gaps.v8,
-                    if (constraints.maxWidth < 200 ||
-                        constraints.maxWidth > 250)
-                      DefaultTextStyle(
-                        style: TextStyle(
-                          color: isDarkMode(context)
-                              ? Colors.grey.shade300
-                              : Colors.grey.shade600,
-                          fontWeight: FontWeight.w600,
-                        ),
-                        child: Row(
-                          children: [
-                            const CircleAvatar(
-                              radius: 12,
-                              backgroundImage: NetworkImage(
-                                "https://avatars.githubusercontent.com/u/69138182?v=4",
-                              ),
-                            ),
-                            Gaps.h4,
-                            const Expanded(
-                              child: Text(
-                                "My avatar is going to be very long",
-                                maxLines: 1,
-                                overflow: TextOverflow.ellipsis,
-                              ),
-                            ),
-                            Gaps.h4,
-                            FaIcon(
-                              FontAwesomeIcons.heart,
-                              size: Sizes.size16,
-                              color: Colors.grey.shade600,
-                            ),
-                            Gaps.h2,
-                            const Text(
-                              "2.5M",
-                            ),
-                          ],
-                        ),
+                    //if (constraints.maxWidth < 200 ||   constraints.maxWidth > 250)
+                    DefaultTextStyle(
+                      style: TextStyle(
+                        color: isDarkMode(context)
+                            ? Colors.grey.shade300
+                            : Colors.grey.shade600,
+                        fontWeight: FontWeight.w600,
                       ),
+                      child: Row(
+                        children: [
+                          const CircleAvatar(
+                            radius: 12,
+                            backgroundImage: NetworkImage(
+                              "https://avatars.githubusercontent.com/u/69138182?v=4",
+                            ),
+                          ),
+                          Gaps.h4,
+                          const Expanded(
+                            child: Text(
+                              "My avatar is going to be very long",
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ),
+                          Gaps.h4,
+                          FaIcon(
+                            FontAwesomeIcons.heart,
+                            size: Sizes.size16,
+                            color: Colors.grey.shade600,
+                          ),
+                          Gaps.h2,
+                          const Text(
+                            "2.5M",
+                          )
+                        ],
+                      ),
+                    )
                   ],
                 ),
               ),
@@ -177,7 +172,7 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
                     fontSize: 28,
                   ),
                 ),
-              ),
+              )
           ],
         ),
       ),
