@@ -4,6 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tiktok_clone/constants/breakpoints.dart';
 import 'package:tiktok_clone/constants/gaps.dart';
 import 'package:tiktok_clone/constants/sizes.dart';
+import 'package:tiktok_clone/utils.dart';
 
 final tabs = [
   "Top",
@@ -57,6 +58,9 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
               controller: _textEditingController,
               onChanged: _onSearchChanged,
               onSubmitted: _onSearchSubmit,
+              style: TextStyle(
+                color: isDarkMode(context) ? Colors.white : Colors.black,
+              ),
             ),
           ),
           bottom: TabBar(
