@@ -99,6 +99,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Already have an account?`
+  String get alreadyHaveAnAccount {
+    return Intl.message(
+      'Already have an account?',
+      name: 'alreadyHaveAnAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Log in {gender, select, male{sir} female{madam} other{human}}`
+  String logIn(String gender) {
+    return Intl.message(
+      'Log in ${Intl.gender(gender, male: 'sir', female: 'madam', other: 'human')}',
+      name: 'logIn',
+      desc: '',
+      args: [gender],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
