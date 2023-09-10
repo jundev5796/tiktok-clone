@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:tiktok_clone/constants/sizes.dart';
 import 'package:tiktok_clone/features/authentication/sign_up_screen.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:tiktok_clone/generated/l10n.dart';
 
 void main() async {
@@ -19,6 +19,7 @@ class TikTokApp extends StatelessWidget {
   const TikTokApp({super.key});
   @override
   Widget build(BuildContext context) {
+    S.load(const Locale("en"));
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'TikTok Clone',
@@ -29,8 +30,8 @@ class TikTokApp extends StatelessWidget {
         GlobalMaterialLocalizations.delegate,
       ],
       supportedLocales: const [
-        Locale("en"),
-        Locale("ko"),
+        Locale('en'),
+        Locale('ko'),
       ],
       themeMode: ThemeMode.system,
       theme: ThemeData(
@@ -79,6 +80,7 @@ class TikTokApp extends StatelessWidget {
         appBarTheme: AppBarTheme(
           surfaceTintColor: Colors.grey.shade900,
           backgroundColor: Colors.grey.shade900,
+          foregroundColor: Colors.white,
           titleTextStyle: const TextStyle(
             color: Colors.white,
             fontSize: Sizes.size16 + Sizes.size2,
