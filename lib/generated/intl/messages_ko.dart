@@ -23,6 +23,13 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m1(nameOfTheApp) => "${nameOfTheApp}에 가입하세요";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
-  static Map<String, Function> _notInlinedMessages(_) =>
-      <String, Function>{"signUpTitle": m1};
+  static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "appleButton":
+            MessageLookupByLibrary.simpleMessage("Continue with Apple"),
+        "emailPasswordButton":
+            MessageLookupByLibrary.simpleMessage("Use email & password"),
+        "signUpSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Create a profile, follow other accounts, make your own videos, and more."),
+        "signUpTitle": m1
+      };
 }

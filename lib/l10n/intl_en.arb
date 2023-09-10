@@ -18,5 +18,8 @@
         "example": "TikTok"
       }
     }
-  }
+  },
+  "signUpSubtitle": "Create a profile, follow other accounts, make your own videos, and more.",
+  "emailPasswordButton": "Use email & password",
+  "appleButton": "Continue with Apple"
 }
