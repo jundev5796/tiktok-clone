@@ -32,7 +32,7 @@ class SignUpScreen extends StatelessWidget {
         },
       ),
     ); */
-    context.push("/jun?show=likes");
+    context.push("/nico?show=likes");
   }
 
   @override
