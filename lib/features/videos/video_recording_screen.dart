@@ -56,7 +56,7 @@ class _VideoRecordingScreenState extends State<VideoRecordingScreen> {
     initPermissions();
   }
 
-  Future<void> toggleSelfieMode() async {
+  Future<void> _toggleSelfieMode() async {
     _isSelfieMode = !_isSelfieMode;
     await initCamera();
     setState(() {});
@@ -82,7 +82,23 @@ class _VideoRecordingScreenState extends State<VideoRecordingScreen> {
                   CircularProgressIndicator.adaptive()
                 ],
               )
-            : CameraPreview(_cameraController),
+            : Stack(
+                alignment: Alignment.center,
+                children: [
+                  CameraPreview(_cameraController),
+                  Positioned(
+                    top: Sizes.size20,
+                    left: Sizes.size20,
+                    child: IconButton(
+                      color: Colors.white,
+                      onPressed: _toggleSelfieMode,
+                      icon: const Icon(
+                        Icons.cameraswitch,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
       ),
     );
   }
