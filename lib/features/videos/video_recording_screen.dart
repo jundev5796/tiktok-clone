@@ -88,13 +88,49 @@ class _VideoRecordingScreenState extends State<VideoRecordingScreen> {
                   CameraPreview(_cameraController),
                   Positioned(
                     top: Sizes.size20,
-                    left: Sizes.size20,
-                    child: IconButton(
-                      color: Colors.white,
-                      onPressed: _toggleSelfieMode,
-                      icon: const Icon(
-                        Icons.cameraswitch,
-                      ),
+                    right: Sizes.size20,
+                    child: Column(
+                      children: [
+                        IconButton(
+                          color: Colors.white,
+                          onPressed: _toggleSelfieMode,
+                          icon: const Icon(
+                            Icons.cameraswitch,
+                          ),
+                        ),
+                        Gaps.v10,
+                        IconButton(
+                          color: Colors.white,
+                          onPressed: _toggleSelfieMode,
+                          icon: const Icon(
+                            Icons.flash_off_rounded,
+                          ),
+                        ),
+                        Gaps.v10,
+                        IconButton(
+                          color: Colors.white,
+                          onPressed: _toggleSelfieMode,
+                          icon: const Icon(
+                            Icons.flash_on_rounded,
+                          ),
+                        ),
+                        Gaps.v10,
+                        IconButton(
+                          color: Colors.white,
+                          onPressed: _toggleSelfieMode,
+                          icon: const Icon(
+                            Icons.flash_auto_rounded,
+                          ),
+                        ),
+                        Gaps.v10,
+                        IconButton(
+                          color: Colors.white,
+                          onPressed: _toggleSelfieMode,
+                          icon: const Icon(
+                            Icons.flashlight_on_rounded,
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ],
