@@ -1,6 +1,7 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:tiktok_clone/constants/gaps.dart';
 import 'package:tiktok_clone/constants/sizes.dart';
@@ -113,7 +114,10 @@ class _VideoRecordingScreenState extends State<VideoRecordingScreen>
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => VideoPreviewScreen(video: video),
+        builder: (context) => VideoPreviewScreen(
+          video: video,
+          isPicked: false,
+        ),
       ),
     );
   }
@@ -126,7 +130,22 @@ class _VideoRecordingScreenState extends State<VideoRecordingScreen>
     super.dispose();
   }
 
-  Future<void> _onPickVideoPressed() async {}
+  Future<void> _onPickVideoPressed() async {
+    final video = await ImagePicker().pickVideo(source: ImageSource.gallery);
+    if (video == null) return;
+
+    if (!mounted) return;
+
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => VideoPreviewScreen(
+          video: video,
+          isPicked: true,
+        ),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
