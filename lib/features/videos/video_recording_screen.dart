@@ -46,6 +46,7 @@ class _VideoRecordingScreenState extends State<VideoRecordingScreen>
       ResolutionPreset.ultraHigh,
     );
     await _cameraController.initialize();
+    await _cameraController.prepareForVideoRecording();
     _flashMode = _cameraController.value.flashMode;
   }
 
@@ -89,14 +90,21 @@ class _VideoRecordingScreenState extends State<VideoRecordingScreen>
     setState(() {});
   }
 
-  void _starRecording(TapDownDetails _) {
+  Future<void> _starRecording(TapDownDetails _) async {
+    if (_cameraController.value.isRecordingVideo) return;
+
+    await _cameraController.startVideoRecording();
+
     _buttonAnimationController.forward();
     _progressAnimationController.forward();
   }
 
-  void _stopRecording() {
+  Future<void> _stopRecording() async {
+    if (!_cameraController.value.isRecordingVideo) return;
     _buttonAnimationController.reverse();
     _progressAnimationController.reset();
+
+    final file = await _cameraController.stopVideoRecording();
   }
 
   @override
