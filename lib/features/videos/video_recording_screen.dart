@@ -101,6 +101,7 @@ class _VideoRecordingScreenState extends State<VideoRecordingScreen>
 
   void _onTapUp(TapUpDetails _) {
     _buttonAnimationController.reverse();
+    _progressAnimationController.reset();
   }
 
   @override
