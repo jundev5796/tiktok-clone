@@ -151,6 +151,17 @@ class _VideoRecordingScreenState extends State<VideoRecordingScreen> {
                       ],
                     ),
                   ),
+                  Positioned(
+                    bottom: Sizes.size40,
+                    child: Container(
+                      width: Sizes.size80,
+                      height: Sizes.size80,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Colors.red.shade400,
+                      ),
+                    ),
+                  )
                 ],
               ),
       ),
