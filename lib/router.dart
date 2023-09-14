@@ -6,6 +6,7 @@ import 'package:tiktok_clone/features/inbox/activity_screen.dart';
 import 'package:tiktok_clone/features/inbox/chat_detail_screen.dart';
 import 'package:tiktok_clone/features/inbox/chats_screen.dart';
 import 'package:tiktok_clone/features/onboarding/interests_screen.dart';
+import 'package:tiktok_clone/features/videos/video_recording_screen.dart';
 
 final router = GoRouter(
   initialLocation: "/inbox",
@@ -51,6 +52,11 @@ final router = GoRouter(
               return ChatDetailScreen(chatId: chatId);
             })
       ],
+    ),
+    GoRoute(
+      path: VideoRecordingScreen.routeURL,
+      name: VideoRecordingScreen.routeName,
+      builder: (context, state) => const VideoRecordingScreen(),
     ),
   ],
 );
