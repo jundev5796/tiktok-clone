@@ -57,7 +57,12 @@ class VideoTimelineScreenState extends ConsumerState<VideoTimelineScreen> {
             child: CircularProgressIndicator(),
           ),
           error: (error, stackTrace) => Center(
-            child: Text("Could not load videos: $error"),
+            child: Text(
+              "Could not load videos: $error",
+              style: const TextStyle(
+                color: Colors.white,
+              ),
+            ),
           ),
           data: (videos) => RefreshIndicator(
             onRefresh: _onRefresh,
