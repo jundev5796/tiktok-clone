@@ -7,4 +7,4 @@ class SignUpViewModel extends AsyncNotifier<void> {
   FutureOr<void> build() {}
 }
 
-final signUpForm = StateProvider((ref) => {})
+final signUpForm = StateProvider((ref) => {});
