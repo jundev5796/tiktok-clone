@@ -101,7 +101,9 @@ class _LoginFormScreenState extends ConsumerState<LoginFormScreen> {
               Gaps.v28,
               GestureDetector(
                 onTap: _onSubmitTap,
-                child: const FormButton(disabled: false),
+                child: FormButton(
+                  disabled: ref.watch(loginProvider).isLoading,
+                ),
               )
             ],
           ),
