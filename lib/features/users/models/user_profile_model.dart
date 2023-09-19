@@ -4,6 +4,7 @@ class UserProfileModel {
   final String name;
   final String bio;
   final String link;
+  final bool hasAvatar;
 
   UserProfileModel({
     required this.uid,
@@ -11,6 +12,7 @@ class UserProfileModel {
     required this.name,
     required this.bio,
     required this.link,
+    required this.hasAvatar,
   });
 
   UserProfileModel.empty()
@@ -18,13 +20,15 @@ class UserProfileModel {
         email = "",
         name = "",
         bio = "",
-        link = "";
+        link = "",
+        hasAvatar = false;
 
   UserProfileModel.fromJson(Map<String, dynamic> json)
       : uid = json["uid"],
         email = json["email"],
         name = json["name"],
         bio = json["bio"],
+        hasAvatar = json["hasAvatar"],
         link = json["link"];
 
   Map<String, String> toJson() {
