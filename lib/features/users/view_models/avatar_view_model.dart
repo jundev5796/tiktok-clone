@@ -15,9 +15,14 @@ class AvatarViewModel extends AsyncNotifier<void> {
   }
 
   Future<void> uploadAvatar(File file) async {
-    state = AsyncValue.loading();
+    state = const AsyncValue.loading();
     final fileName = ref.read(authRepo).user!.uid;
-    state =
-        await AsyncValue.guard(() => _repository.uploadAvatar(file, fileName));
+    state = await AsyncValue.guard(
+      () async => await _repository.uploadAvatar(file, fileName),
+    );
   }
 }
+
+final avatarProvider = AsyncNotifierProvider<AvatarViewModel, void>(
+  () => AvatarViewModel(),
+);

@@ -1,9 +1,9 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:tiktok_clone/features/users/view_models/avatar_view_model.dart';
 
 class Avatar extends ConsumerWidget {
   final String name;
@@ -27,14 +27,25 @@ class Avatar extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final isLoading = ref.watch(avatarProvider).isLoading;
     return GestureDetector(
-      onTap: _onAvatarTap,
-      child: CircleAvatar(
-        radius: 50,
-        foregroundImage: const NetworkImage(
-            "https://avatars.githubusercontent.com/u/69138182?v=4"),
-        child: Text(name),
-      ),
+      onTap: isLoading ? null : _onAvatarTap,
+      child: !isLoading
+          ? Container(
+              width: 50,
+              height: 50,
+              alignment: Alignment.center,
+              decoration: const BoxDecoration(
+                shape: BoxShape.circle,
+              ),
+              child: const CircularProgressIndicator(),
+            )
+          : CircleAvatar(
+              radius: 50,
+              foregroundImage: const NetworkImage(
+                  "https://avatars.githubusercontent.com/u/69138182?v=4"),
+              child: Text(name),
+            ),
     );
   }
 }
