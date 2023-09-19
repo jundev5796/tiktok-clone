@@ -52,7 +52,7 @@ class _UserProfileScreenState extends ConsumerState<UserProfileScreen> {
                   headerSliverBuilder: (context, innerBoxIsScrolled) {
                     return [
                       SliverAppBar(
-                        title: Text(widget.username),
+                        title: Text(data.name),
                         actions: [
                           IconButton(
                             onPressed: _onGearPressed,
@@ -67,18 +67,18 @@ class _UserProfileScreenState extends ConsumerState<UserProfileScreen> {
                         child: Column(
                           children: [
                             Gaps.v20,
-                            const CircleAvatar(
+                            CircleAvatar(
                               radius: 50,
                               foregroundImage: NetworkImage(
                                   "https://avatars.githubusercontent.com/u/69138182?v=4"),
-                              child: Text("Jun"),
+                              child: Text(data.name),
                             ),
                             Gaps.v20,
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text(
-                                  "@${widget.username}",
+                                  "@${data.name}",
                                   style: const TextStyle(
                                     fontWeight: FontWeight.w600,
                                     fontSize: Sizes.size18,
