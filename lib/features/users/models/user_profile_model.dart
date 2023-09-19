@@ -40,4 +40,22 @@ class UserProfileModel {
       "link": link,
     };
   }
+
+  UserProfileModel copyWith({
+    String? uid,
+    String? email,
+    String? name,
+    String? bio,
+    String? link,
+    bool? hasAvatar,
+  }) {
+    return UserProfileModel(
+      uid: uid ?? this.uid,
+      email: email ?? this.email,
+      name: name ?? this.name,
+      bio: bio ?? this.bio,
+      link: link ?? this.link,
+      hasAvatar: hasAvatar ?? this.hasAvatar,
+    );
+  }
 }
