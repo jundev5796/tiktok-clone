@@ -12,10 +12,10 @@ import * as logger from "firebase-functions/logger";
 import * as functions from "firebase-functions";
 import * as admin from "firebase-admin";
 
-// Start writing functions
-// https://firebase.google.com/docs/functions/typescript
+admin.initializeApp();
 
-// export const helloWorld = onRequest((request, response) => {
-//   logger.info("Hello logs!", {structuredData: true});
-//   response.send("Hello from Firebase!");
-// });
+export const onVideoCreated = functions.firestore
+  .document("videos/{videoId}")
+  .onCreate(async (snapshot, context) => {
+    snapshot.ref.update({ hello: "from functions" });
+  });
