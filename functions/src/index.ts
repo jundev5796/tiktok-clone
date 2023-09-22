@@ -1,17 +1,6 @@
-<<<<<<< HEAD
-=======
-/**
- * Import function triggers from their respective submodules:
- *
- * import {onCall} from "firebase-functions/v2/https";
- * import {onDocumentWritten} from "firebase-functions/v2/firestore";
- *
- * See a full list of supported triggers at https://firebase.google.com/docs/functions
- */
 
-import { onRequest } from "firebase-functions/v2/https";
-import * as logger from "firebase-functions/logger";
->>>>>>> 6785d4e3c971d3481f524b7600f6ccdcc440021c
+
+
 import * as functions from "firebase-functions";
 import * as admin from "firebase-admin";
 
@@ -20,7 +9,6 @@ admin.initializeApp();
 export const onVideoCreated = functions.firestore
   .document("videos/{videoId}")
   .onCreate(async (snapshot, context) => {
-<<<<<<< HEAD
     const spawn = require("child-process-promise").spawn;
     const video = snapshot.data();
     await spawn("ffmpeg", [
@@ -48,7 +36,6 @@ export const onVideoCreated = functions.firestore
       .collection("videos")
       .doc(snapshot.id)
       .set({ thumbnailUrl: file.publicUrl(), videoId: snapshot.id });
-=======
+
     snapshot.ref.update({ hello: "from functions" });
->>>>>>> 6785d4e3c971d3481f524b7600f6ccdcc440021c
   });
