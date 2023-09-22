@@ -19,4 +19,8 @@ export const onVideoCreated = functions.firestore
       "scale=150:-1",
       `/tmp/${snapshot.id}.jpg`,
     ]);
+    const storage = admin.storage();
+    await storage.bucket().upload(`/tmp/${snapshot.id}.jpg`, {
+      destination: `thumbnails/${snapshot.id}.jpg`,
+    });
   });
