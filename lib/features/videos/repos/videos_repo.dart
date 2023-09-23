@@ -24,6 +24,7 @@ class VideosRepository {
     return _db
         .collection("videos")
         .orderBy("createdAt", descending: true)
+        .limit(2)
         .get();
   }
 }
