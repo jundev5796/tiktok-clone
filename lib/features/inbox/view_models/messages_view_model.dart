@@ -5,7 +5,7 @@ import 'package:tiktok_clone/features/authentication/repos/authentication_repo.d
 import 'package:tiktok_clone/features/inbox/models/message_model.dart';
 import 'package:tiktok_clone/features/inbox/repos/messages_repo.dart';
 
-class MessageViewModel extends AsyncNotifier<void> {
+class MessagesViewModel extends AsyncNotifier<void> {
   late final MessagesRepo _repo;
 
   @override
@@ -25,3 +25,7 @@ class MessageViewModel extends AsyncNotifier<void> {
     });
   }
 }
+
+final messagesProvider = AsyncNotifierProvider<MessagesViewModel, void>(
+  () => MessagesViewModel(),
+);
