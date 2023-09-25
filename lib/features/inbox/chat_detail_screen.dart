@@ -1,8 +1,10 @@
+import 'package:firebase/firebase.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tiktok_clone/constants/gaps.dart';
 import 'package:tiktok_clone/constants/sizes.dart';
+import 'package:tiktok_clone/features/authentication/repos/authentication_repo.dart';
 import 'package:tiktok_clone/features/inbox/view_models/messages_view_model.dart';
 import 'package:tiktok_clone/utils.dart';
 
@@ -77,12 +79,18 @@ class _ChatDetailScreenState extends ConsumerState<ChatDetailScreen> {
           ref.watch(chatProvider).when(
                 data: (data) {
                   return ListView.separated(
-                    padding: const EdgeInsets.symmetric(
-                      vertical: Sizes.size20,
-                      horizontal: Sizes.size14,
+                    reverse: true,
+                    padding: EdgeInsets.only(
+                      top: Sizes.size20,
+                      bottom:
+                          MediaQuery.of(context).padding.bottom + Sizes.size96,
+                      left: Sizes.size14,
+                      right: Sizes.size14,
                     ),
                     itemBuilder: (context, index) {
-                      final isMine = index % 2 == 0;
+                      final message = data[index];
+                      final isMine =
+                          message.userId == ref.watch(authRepo).user!.uid;
                       return Row(
                         mainAxisSize: MainAxisSize.min,
                         mainAxisAlignment: isMine
@@ -110,9 +118,9 @@ class _ChatDetailScreenState extends ConsumerState<ChatDetailScreen> {
                                 ),
                               ),
                             ),
-                            child: const Text(
-                              "this is a message!",
-                              style: TextStyle(
+                            child: Text(
+                              message.text,
+                              style: const TextStyle(
                                 color: Colors.white,
                                 fontSize: Sizes.size16,
                               ),
@@ -122,7 +130,7 @@ class _ChatDetailScreenState extends ConsumerState<ChatDetailScreen> {
                       );
                     },
                     separatorBuilder: (context, index) => Gaps.v10,
-                    itemCount: 10,
+                    itemCount: data.length,
                   );
                 },
                 error: (error, stackTrace) => Center(
