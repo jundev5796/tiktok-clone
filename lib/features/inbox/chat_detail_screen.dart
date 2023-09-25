@@ -1,4 +1,3 @@
-import 'package:firebase/firebase.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -11,20 +10,17 @@ import 'package:tiktok_clone/utils.dart';
 class ChatDetailScreen extends ConsumerStatefulWidget {
   static const String routeName = "chatDetail";
   static const String routeURL = ":chatId";
-
   final String chatId;
   const ChatDetailScreen({
     super.key,
     required this.chatId,
   });
-
   @override
   ConsumerState<ChatDetailScreen> createState() => _ChatDetailScreenState();
 }
 
 class _ChatDetailScreenState extends ConsumerState<ChatDetailScreen> {
   final TextEditingController _editingController = TextEditingController();
-
   void _onSendPress() {
     final text = _editingController.text;
     if (text == "") {
@@ -76,7 +72,7 @@ class _ChatDetailScreenState extends ConsumerState<ChatDetailScreen> {
       ),
       body: Stack(
         children: [
-          ref.watch(chatProvider).when(
+          ref.watch(chatProvider(widget.chatId)).when(
                 data: (data) {
                   return ListView.separated(
                     reverse: true,
