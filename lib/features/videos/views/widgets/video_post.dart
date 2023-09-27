@@ -255,8 +255,6 @@ class VideoPostState extends ConsumerState<VideoPost>
                   radius: 25,
                   backgroundColor: Colors.black,
                   foregroundColor: Colors.white,
-                  foregroundImage: NetworkImage(
-                      "https://firebasestorage.googleapis.com/v0/b/tiktok-jun-abc.appspot.com/o/avatars%2F${widget.videoData.creatorUid}?alt=media"),
                   child: Text(
                     widget.videoData.creator,
                   ),
